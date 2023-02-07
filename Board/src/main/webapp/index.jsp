@@ -2,11 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Index</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
+<jsp:forward page="WEB-INF/views/list.jsp"></jsp:forward>
 </body>
 </html>
