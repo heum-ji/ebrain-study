@@ -7,7 +7,7 @@
 <html>
 <head>
     <%-- 공통헤더 --%>
-    <%@include file="common/header.jsp" %>
+    <%@include file="/header.jsp" %>
 
     <%-- CSS --%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/list.css">
@@ -55,7 +55,12 @@
         <tr>
             <td>JAVA</td>
             <td><i class="bi bi-paperclip"></i></td>
-            <td class="board-title">OKKY 3월 세미나 서비스 개발자로 커리어 전환하기 by 와이즐...</td>
+            <td class="board-title">
+                <a href="${pageContext.request.contextPath}/boards/free/view.jsp?boardNo=1">
+                    OKKY 3월 세미나 서비스 개발자로 커리어 전환하기 by 와이즐...
+                </a>
+
+            </td>
             <td>윤상진</td>
             <td>12</td>
             <td>2022.04.04 16:32</td>
@@ -91,8 +96,8 @@
     </ul>
 
     <%--  글쓰기--%>
-    <div class="btn-right text-end">
-        <a class="btn btn-primary" href="/boards/free/write">글쓰기</a>
+    <div class="text-end">
+        <a class="btn btn-primary" href="/boards/free/write">등록</a>
     </div>
 
 </div>

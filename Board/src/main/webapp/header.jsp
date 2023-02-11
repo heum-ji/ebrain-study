@@ -14,3 +14,6 @@
 
 <%-- bootstrap-icons --%>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+<%-- JSTL --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
