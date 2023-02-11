@@ -8,12 +8,18 @@
 <head>
     <%-- 공통헤더 --%>
     <%@include file="common/header.jsp" %>
+
+    <%-- CSS --%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/list.css">
+
+    <%-- JS --%>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/list.js"></script>
     <title>List</title>
 </head>
 
 <body>
 <div class="container mt-5">
-    <h2 class="mb-4 mt-3">자유 게시판 - 목록</h2>
+    <h4 class="mb-4 mt-3">자유 게시판 - 목록</h4>
     <%-- 상단 검색 --%>
     <form class="row search-wrap justify-content-between" action="/boards/free/search" method="GET">
         <div class="col-auto">

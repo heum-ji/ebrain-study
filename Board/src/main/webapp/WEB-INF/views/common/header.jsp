@@ -14,9 +14,3 @@
 
 <%-- bootstrap-icons --%>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
-<%-- CSS --%>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/free.css">
-
-<%-- JS --%>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/free.js"></script>
