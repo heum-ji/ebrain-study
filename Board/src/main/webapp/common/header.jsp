@@ -17,3 +17,10 @@
 
 <%-- JSTL --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<style>
+    .container {
+        border: 1px black solid;
+        width: 1100px;
+    }
+</style>
