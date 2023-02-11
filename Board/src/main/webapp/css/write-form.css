@@ -1,0 +1,59 @@
+.content-left {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    border-bottom: 1px solid black;
+    height: 440px;
+}
+
+.content-right {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+    height: 440px;
+}
+
+.row {
+    padding-left: 12px;
+    padding-right: 12px;
+    border-top: 1px solid black;
+}
+
+.content-wrap {
+    border: 0;
+}
+
+#selectCategory, #password, #passwordCheck, #writer, #title {
+    width: 250px;
+}
+
+#content {
+    height: 150px;
+}
+
+.row-40 {
+    height: 40px;
+}
+
+.row-160 {
+    height: 160px;
+}
+
+.password-wrap {
+    flex-direction: row;
+}
+
+textarea {
+    resize: none;
+    height: 160px;
+}
+
+.file-padding-40 {
+    padding-top: 40px;
+}
+
+.btn-submit {
+    display: flex;
+    justify-content: space-between;
+    padding:0;
+}
