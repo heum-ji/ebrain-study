@@ -1,0 +1,66 @@
+.container {
+    border: 1px black solid;
+    overflow: hidden;
+    width: 1100px;
+}
+
+.form-control-plaintext {
+    display: inline-block;
+}
+
+#registerDate, #modifyDate {
+    width: 125px;
+}
+
+
+.row {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.row div {
+    padding: 0;
+}
+
+.row input {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.board-info > div {
+    border-bottom: 2px black solid;
+}
+
+textarea:not([name="comment"]) {
+    resize: none;
+    height: 250px;
+}
+
+textarea[name="comment-frm"] {
+    width: 85%;
+    height: 80px;
+}
+
+textarea[name="comment"] {
+    resize: none;
+    height: 70px;
+}
+
+.btn {
+    width: 100px;
+}
+
+#commentWrite{
+    /*width: 20%;*/
+}
+.comment {
+    border-bottom: 1px dotted black;
+}
+
+.comment-wrap {
+    background-color: antiquewhite;
+}
+
+.form-control {
+    display: inline-block;
+}
