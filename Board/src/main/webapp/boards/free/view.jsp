@@ -7,7 +7,7 @@
 <html>
 <head>
     <%-- 공통헤더 --%>
-    <%@include file="/header.jsp" %>
+    <%@include file="/common/header.jsp" %>
     <%-- CSS --%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/view.css">
     <%-- JS --%>

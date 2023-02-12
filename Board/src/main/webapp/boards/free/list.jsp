@@ -7,7 +7,7 @@
 <html>
 <head>
     <%-- 공통헤더 --%>
-    <%@include file="/header.jsp" %>
+    <%@include file="/common/header.jsp" %>
 
     <%-- CSS --%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/list.css">
@@ -96,8 +96,8 @@
     </ul>
 
     <%--  글쓰기--%>
-    <div class="text-end">
-        <a class="btn btn-primary" href="/boards/free/write">등록</a>
+    <div class="text-end mb-3">
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/boards/free/writeForm.jsp">등록</a>
     </div>
 
 </div>
