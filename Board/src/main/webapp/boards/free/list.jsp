@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.ebrain.board.vo.Board" %><%--
   User: Heum
   Date: 2023-02-07
   Time: 오후 10:29
@@ -18,6 +18,12 @@
 </head>
 
 <body>
+<%
+    Board b = new Board();
+    b.testMsg();
+    b.testMsg();
+    System.out.println("이거되니..?");
+%>
 <div class="container mt-5">
     <h4 class="mb-4 mt-3">자유 게시판 - 목록</h4>
     <%-- 상단 검색 --%>
