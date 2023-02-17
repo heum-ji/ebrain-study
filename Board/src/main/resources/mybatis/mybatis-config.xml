@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+    <settings>
+        <!-- null 발생하는 경우 ""이 아닌 NULL로 인식 Set -->
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+
+    <!-- 별칭 설정-->
+    <typeAliases>
+        <typeAlias type="com.ebrain.freeBoard.vo.CategoryVo" alias="categoryVo"/>
+    </typeAliases>
+
+    <!-- DB 접속정보 -->
+    <environments default="dev">
+        <environment id="dev">
+            <!-- commit/rollback 지정 JDBC : 수동으로 하겠다. -->
+            <transactionManager type="JDBC"/>
+            <!-- DBCP -->
+            <dataSource type="POOLED">
+                <property name="driver" value="org.mariadb.jdbc.Driver"/>
+                <property name="url" value="jdbc:mariadb://localhost:3306/freeboard"/>
+                <property name="username" value="Heumia"/>
+                <property name="password" value="1234"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 쿼리문 들어 있는 mapper의 위치를 지정 -->
+    <mappers>
+        <mapper resource="./mybatis/mapper/category-mapper.xml"/>
+    </mappers>
+</configuration>
