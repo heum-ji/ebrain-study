@@ -1,4 +1,4 @@
 package com.ebrain.freeBoard.vo;
 
-public class Comment {
+public class CommentVo {
 }
