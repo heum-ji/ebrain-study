@@ -5,6 +5,6 @@
     <title>Index</title>
 </head>
 <body>
-<jsp:forward page="boards/free/list.jsp"></jsp:forward>
+<jsp:forward page="/WEB-INF/boards/free/list.jsp"></jsp:forward>
 </body>
 </html>

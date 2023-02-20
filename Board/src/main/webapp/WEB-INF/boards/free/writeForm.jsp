@@ -45,7 +45,7 @@
         </div>
         <%-- 오른쪽 form --%>
         <div class="col-9 content-right">
-            <form action="${pageContext.request.contextPath}/boards/free/write.jsp" method="POST" id="boardForm">
+            <form action="${pageContext.request.contextPath}/boards/free/write" method="POST" id="boardForm">
                 <div class="row row-40 align-items-center">
                     <select class="form-select form-select-sm" name="selectCategory" id="selectCategory" required>
                         <option value="">카테고리 선택</option>
@@ -78,7 +78,7 @@
         </div>
 
         <div class="mt-3 btn-submit">
-            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/boards/free/list.jsp">취소</a>
+            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/boards/free/list">취소</a>
             <button type="submit" class="btn btn-primary" form="boardForm">저장</button>
         </div>
     </div>

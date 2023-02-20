@@ -76,7 +76,7 @@
 
         <div class="mt-3">
             <form class="row"
-                  action="${pageContext.request.contextPath}/boards/free/comment.jsp?boardNo=${param.boardNo}"
+                  action="${pageContext.request.contextPath}/WEB-INF/boards/free/comment.jsp?boardNo=${param.boardNo}"
                   method="POST">
                 <textarea class="form-control me-3 col-10" name="comment-frm" placeholder="댓글을 입력해 주세요."></textarea>
                 <input type="submit" class="ms-3 col-2 btn btn-primary" id="commentWrite" value="등록">
@@ -86,9 +86,9 @@
 
     <%-- 하단 버튼 --%>
     <div class="mt-3 mb-3 text-center">
-        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/boards/free/list.jsp">목록</a>
-        <a class="btn btn-primary" href="${pageContext.request.contextPath}/boards/free/modify.jsp?type=1">수정</a>
-        <a class="btn btn-danger" href="${pageContext.request.contextPath}/boards/free/modify.jsp?type=2">삭제</a>
+        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/WEB-INF/boards/free/list.jsp">목록</a>
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/WEB-INF/boards/free/modify.jsp?type=1">수정</a>
+        <a class="btn btn-danger" href="${pageContext.request.contextPath}/WEB-INF/boards/free/modify.jsp?type=2">삭제</a>
     </div>
 </div>
 </body>
