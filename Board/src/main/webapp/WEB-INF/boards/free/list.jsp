@@ -1,9 +1,14 @@
-<%@ page import="com.ebrain.board.vo.Board" %><%--
-  User: Heum
-  Date: 2023-02-07
-  Time: 오후 10:29
---%>
+<%@ page import="com.ebrain.freeBoard.service.CategoryService" %>
+<%@ page import="com.ebrain.freeBoard.vo.CategoryVo" %>
+<%@ page import="java.util.List" %>
+
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    System.out.println("여기는 list");
+
+    CategoryService cs = new CategoryService();
+    List<CategoryVo> list = cs.selectCategoryList();
+%>
 <html>
 <head>
     <%-- 공통헤더 --%>
@@ -18,12 +23,7 @@
 </head>
 
 <body>
-<%
-    Board b = new Board();
-    b.testMsg();
-    b.testMsg();
-    System.out.println("이거되니..?");
-%>
+
 <div class="container mt-5">
     <h4 class="mb-4 mt-3">자유 게시판 - 목록</h4>
     <%-- 상단 검색 --%>
@@ -62,7 +62,7 @@
             <td>JAVA</td>
             <td><i class="bi bi-paperclip"></i></td>
             <td class="board-title">
-                <a href="${pageContext.request.contextPath}/boards/free/view.jsp?boardNo=1">
+                <a href="${pageContext.request.contextPath}/boards/free/view?boardNo=1">
                     OKKY 3월 세미나 서비스 개발자로 커리어 전환하기 by 와이즐...
                 </a>
 
@@ -101,9 +101,9 @@
         </li>
     </ul>
 
-    <%--  글쓰기--%>
+    <%-- 글쓰기 --%>
     <div class="text-end mb-3">
-        <a class="btn btn-primary" href="${pageContext.request.contextPath}/boards/free/writeForm.jsp">등록</a>
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/boards/free/writeForm">등록</a>
     </div>
 
 </div>

@@ -5,7 +5,7 @@
         <!--  LOG 출력 PATTERN  -->
         <!-- [날짜] / [로그 레벨] / [쓰레드] / [클래스.메서드:라인넘버] / msg -->
         <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}] %highlight([%-5level]) [%thread] %cyan([%C.%M:%line]) - %msg %n
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}] %highlight([%-5level]) %cyan([%C.%M:%line]) - %msg %n
             </pattern>
         </encoder>
     </appender>
