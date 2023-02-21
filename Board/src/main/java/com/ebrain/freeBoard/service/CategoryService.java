@@ -12,7 +12,7 @@ import java.util.List;
  * 카테고리 서비스
  */
 @Slf4j
-public class CategoryService implements IService {
+public class CategoryService {
 
     /**
      * 카테고리 전체 리스트 조회

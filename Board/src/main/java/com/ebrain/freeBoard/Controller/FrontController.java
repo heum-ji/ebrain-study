@@ -1,18 +1,19 @@
 package com.ebrain.freeBoard.Controller;
 
-import com.ebrain.freeBoard.service.BoardService;
+import com.ebrain.freeBoard.service.BoardListService;
+import com.ebrain.freeBoard.service.BoardViewService;
 import com.ebrain.freeBoard.service.IService;
+import com.ebrain.freeBoard.vo.BoardVo;
+import com.ebrain.freeBoard.vo.ReturnVo;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 모든 요청을 우선 처리하는 FrontController
@@ -30,9 +31,8 @@ public class FrontController extends HttpServlet {
     public FrontController() {
         serviceMap = new HashMap<>();
         // 요청된 URL을 처리할 서비스 매핑
-        serviceMap.put("/boards/free/writeForm", null); // 게시판 등록폼 이동
-        serviceMap.put("/boards/free/write", new BoardService()); // 게시판 등록
-        serviceMap.put("/boards/free/view", new BoardService()); // 게시판 상세 보기
+        serviceMap.put("/boards/free/list", new BoardListService()); // 게시판 목록 조회
+        serviceMap.put("/boards/free/view", new BoardViewService()); // 게시판 상세 조회
     }
 
     /**
@@ -44,26 +44,53 @@ public class FrontController extends HttpServlet {
      */
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // request가 들어오면 Servlet에서 service 메서드가 가장 먼저 실행됨
-
         // 요청 URI 추출
         String requestURI = request.getRequestURI();
         log.debug("requestURI :: {}", requestURI);
 
         // 요청 url에 해당하는 서비스 조회
         IService service = serviceMap.get(requestURI);
+
+        // 예외 : 요청하지 않은 URL인 경우 메서드 종료
+        if (service == null) {
+            log.debug("404 :: {} 에 해당하는 페이지가 없습니다.", requestURI);
+            return;
+        }
+
         log.debug("선택된 서비스 :: {}", service);
 
-        // 단순 page 이동
-        switch (requestURI) {
-            case "/boards/free/write":
-                break;
-            case "/boards/free/writeForm":
-                request.getRequestDispatcher("/WEB-INF/boards/free/writeForm.jsp").forward(request, response);
-                break;
-            default: // 예외처리 - 매핑에 없는 URL이 요청됐을 때
-                response.setStatus(HttpServletResponse.SC_NOT_FOUND); // 404 에러코드
-                break;
+        // 인코딩
+        request.setCharacterEncoding("UTF-8");
+
+        // 비즈니스 로직 처리
+        ReturnVo<?> returnVo = service.process(request, response);
+
+        // 화면에 전달할 파라미터 Set
+        request.setAttribute("vo", returnVo.getVo()); // 단건
+        request.setAttribute("list", returnVo.getList()); // 목록
+        request.setAttribute("pagination", returnVo.getPagination()); // 하단 페이징 처리
+        request.setAttribute("totalCnt", returnVo.getTotalCnt()); // 전체 게시물 수
+
+        // 화면 이동
+        if ("Y".equals(returnVo.getRedirectYn())) { // redirect 처리
+            response.sendRedirect(getPath(returnVo.getPageName()));
+        } else if ("N".equals(returnVo.getRedirectYn())) { // forward 처리
+            request.getRequestDispatcher(getPath(returnVo.getPageName())).forward(request, response);
         }
+
+    }
+
+    /**
+     * 이동할 화면(JSP) prefix 및 suffix 처리
+     *
+     * @param path 이동할 화면 경로
+     *
+     * @return prefix 및 suffix 처리 완료된 화면 Path
+     */
+    private String getPath(String path) {
+        String prefix = "/WEB-INF"; // 접두어
+        String suffix = ".jsp"; // 접미어
+
+        return prefix + path + suffix;
     }
 }

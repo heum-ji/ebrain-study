@@ -9,6 +9,7 @@
     <!-- 별칭 설정-->
     <typeAliases>
         <typeAlias type="com.ebrain.freeBoard.vo.CategoryVo" alias="categoryVo"/>
+        <typeAlias type="com.ebrain.freeBoard.vo.BoardVo" alias="boardVo"/>
     </typeAliases>
 
     <!-- DB 접속정보 -->
@@ -29,5 +30,6 @@
     <!-- 쿼리문 들어 있는 mapper의 위치를 지정 -->
     <mappers>
         <mapper resource="./mybatis/mapper/category-mapper.xml"/>
+        <mapper resource="./mybatis/mapper/board-mapper.xml"/>
     </mappers>
 </configuration>

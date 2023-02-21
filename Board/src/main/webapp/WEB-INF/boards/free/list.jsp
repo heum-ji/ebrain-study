@@ -1,14 +1,6 @@
-<%@ page import="com.ebrain.freeBoard.service.CategoryService" %>
-<%@ page import="com.ebrain.freeBoard.vo.CategoryVo" %>
-<%@ page import="java.util.List" %>
-
+<%@ page import="com.ebrain.freeBoard.vo.BoardVo" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%
-    System.out.println("여기는 list");
-
-    CategoryService cs = new CategoryService();
-    List<CategoryVo> list = cs.selectCategoryList();
-%>
+<!DOCTYPE html>
 <html>
 <head>
     <%-- 공통헤더 --%>
@@ -44,7 +36,7 @@
         </div>
     </form>
     <%-- 게시물 총 건수 --%>
-    <p class="mt-2">총 ${boardCount}건</p>
+    <p class="mt-2">총 ${totalCnt}건</p>
     <table class="table table-hover table-striped">
         <thead>
         <tr class="border-top table-head">
@@ -58,29 +50,21 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>JAVA</td>
-            <td><i class="bi bi-paperclip"></i></td>
-            <td class="board-title">
-                <a href="${pageContext.request.contextPath}/boards/free/view?boardNo=1">
-                    OKKY 3월 세미나 서비스 개발자로 커리어 전환하기 by 와이즐...
-                </a>
-
-            </td>
-            <td>윤상진</td>
-            <td>12</td>
-            <td>2022.04.04 16:32</td>
-            <td>2022.04.08 16:32</td>
-        </tr>
-        <tr>
-            <td>JAVA</td>
-            <td></td>
-            <td class="board-title">OKKY 3월 세미나 서비스 개발자로 커리어 전환하기 by 와이즐...</td>
-            <td>윤상진</td>
-            <td>12</td>
-            <td>2022.04.04 16:32</td>
-            <td>2022.04.08 16:32</td>
-        </tr>
+        <c:forEach var="boardVo" items="${list}">
+            <tr>
+                <td>${boardVo.categoryName}</td>
+                <td><i class="bi bi-paperclip"></i></td>
+                <td class="board-title">
+                    <a href="${pageContext.request.contextPath}/boards/free/view?boardNo=${boardVo.boardNo}">
+                            ${boardVo.title}
+                    </a>
+                </td>
+                <td>${boardVo.writer}</td>
+                <td>${boardVo.viewCount}</td>
+                <td>${boardVo.registerDate}</td>
+                <td>${boardVo.modifyDate}</td>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
 

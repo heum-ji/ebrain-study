@@ -86,9 +86,9 @@
 
     <%-- 하단 버튼 --%>
     <div class="mt-3 mb-3 text-center">
-        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/WEB-INF/boards/free/list.jsp">목록</a>
-        <a class="btn btn-primary" href="${pageContext.request.contextPath}/WEB-INF/boards/free/modify.jsp?type=1">수정</a>
-        <a class="btn btn-danger" href="${pageContext.request.contextPath}/WEB-INF/boards/free/modify.jsp?type=2">삭제</a>
+        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/boards/free/list?reqPage=${reqPage}">목록</a>
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/boards/free/modifyForm?boardNo=${boardNo}">수정</a>
+        <a class="btn btn-danger" href="${pageContext.request.contextPath}/boards/free/delete?boardNo=${boardNo}">삭제</a>
     </div>
 </div>
 </body>
